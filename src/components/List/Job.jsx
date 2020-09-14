@@ -42,6 +42,12 @@ class Job extends Component {
                 grid-template-columns: auto 1fr 40%;
             }
 
+            @media all and (max-width:750px){
+                grid-template-columns: auto 1fr;
+                grid-template-rows:auto auto;
+                padding:25px 40px 5px;
+            }
+
             @media all and (max-width:375px){
                 padding:25px 20px 0;
                 grid-template-columns: 1fr;
@@ -78,6 +84,10 @@ class Job extends Component {
             font-weight:700;
             color:hsl(180, 29%, 50%);
             padding-right: 15px;
+
+            @media all and (max-width:463px){
+                display:block;
+            }
         `;
 
         const NewTag = styled.span`
@@ -89,6 +99,10 @@ class Job extends Component {
             display:inline-block;
             font-weight:500;
             margin-right:8px;
+
+                @media all and (max-width:463px){
+                    margin-top:10px;
+                }
         `;
 
         const FeaturedTag = styled.span`
@@ -99,6 +113,10 @@ class Job extends Component {
             color:#fff;
             display:inline-block;
             font-weight:500;
+
+            @media all and (max-width:463px){
+                margin-top:10px;
+            }
         `;
 
         const H4 = styled.h4`
@@ -132,6 +150,15 @@ class Job extends Component {
             }
 
             &:nth-child(3){margin-right:0;}
+        `;
+
+        const FilterTags = styled.div`
+            @media all and (max-width:750px){
+                grid-column-start:1;
+                grid-column-end:3;
+                padding-top:20px;
+                border-top:1px solid hsl(180, 8%, 52%);
+            }
         `;
 
         const Filter = styled.span`
@@ -188,9 +215,9 @@ class Job extends Component {
                             <SpanLowerDetails>{location}</SpanLowerDetails>
                         </div>
                     </JobDetails>
-                    <div className="filterTags">
+                    <FilterTags>
                         {filterNames.map((filter, id) => filter && <Filter key={id} onClick={this.filterClick}>{filter}</Filter>)}
-                    </div>
+                    </FilterTags>
                 </JobContainer>
                 
                 : ""
