@@ -5,6 +5,7 @@ import Filter from './Filter';
 import styled from 'styled-components';
 
 class FilterBox extends Component {
+
     render() {
         const FilterBoxWrapper = styled.div`
             position:absolute;
@@ -15,7 +16,7 @@ class FilterBox extends Component {
         `;
 
         const FilterBoxContainer = styled.div`
-            padding:18px 40px;
+            padding:20px 40px 0;
             background-color:#fff;
             box-shadow:5px 9px 18px hsla(180, 29%, 50%, .3);
             max-width:1440px;
@@ -37,6 +38,7 @@ class FilterBox extends Component {
             font-weight:700;
             cursor:pointer;
             display:inline-block;
+            margin-bottom:20px;
 
             &:hover{
                 text-decoration: underline;
@@ -44,14 +46,13 @@ class FilterBox extends Component {
 
             @media all and (max-width:375px){
                 font-size:.8rem;
-               margin-bottom:20px;
             }
         `;
 
         const { filters, removeFilter, clearFilters, sortJobbings } = this.props
 
         return (
-            <FilterBoxWrapper>
+            <FilterBoxWrapper id="filterBox">
                 <FilterBoxContainer>
                     <div className="filtersContainer">
                         {filters.map((filterName, id) => <Filter key={id} filterName={filterName} removeFilter={removeFilter} sortJobbings={sortJobbings} />)}

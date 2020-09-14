@@ -13,7 +13,7 @@ class App extends Component {
             data: [],
             filters: [],
             filtersRef: [],
-            dataRef: []
+            dataRef: [],
         }
     }
 
@@ -251,7 +251,7 @@ class App extends Component {
         );
     }
 
-    removeFilter = (e) => {
+    removeFilter = (e, height) => {
         const filterName = e.currentTarget.previousElementSibling.innerHTML;
 
         const result = this.state.filters.filter((filt) => filterName !== filt);
@@ -261,7 +261,7 @@ class App extends Component {
                 if(this.state.filters.length > 0){
                     this.sortJobbings()
                 }else{
-                    this.setState({data: this.state.dataRef})
+                    this.setState({data: this.state.dataRef, filterBoxContHeight: height})
                 }
             }  
         );
@@ -272,7 +272,12 @@ class App extends Component {
             <React.Fragment>
                 <GlobalStyle />
                 <div>
-                    <Header filters={this.state.filters} removeFilter={this.removeFilter} sortJobbings={this.sortJobbings} clearFilters={this.clearFilters}/>
+                    <Header 
+                        filters={this.state.filters}
+                        removeFilter={this.removeFilter}
+                        sortJobbings={this.sortJobbings}
+                        clearFilters={this.clearFilters}
+                    />
                     <List datas={this.state.data} addFilters={this.addFilters} />
                 </div>
             </React.Fragment>

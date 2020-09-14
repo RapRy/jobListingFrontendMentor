@@ -9,6 +9,7 @@ const Filter = ({ filterName, removeFilter, sortJobbings }) => {
     const Filter = styled.div`
         margin-right:20px;
         display:inline-block;
+        margin-bottom:20px;
 
         &:last-child{
             margin-right: 0;
