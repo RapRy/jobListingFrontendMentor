@@ -88,6 +88,10 @@ class Job extends Component {
             @media all and (max-width:463px){
                 display:block;
             }
+
+            @media all and (max-width:375px){
+                display:inline-block;
+            }
         `;
 
         const NewTag = styled.span`
