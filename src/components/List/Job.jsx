@@ -159,6 +159,11 @@ class Job extends Component {
                 padding-top:20px;
                 border-top:1px solid hsl(180, 8%, 52%);
             }
+
+            @media all and (max-width:375px){
+                padding-top:0;
+                border-top:none;
+            }
         `;
 
         const Filter = styled.span`

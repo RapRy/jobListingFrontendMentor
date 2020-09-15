@@ -11,7 +11,13 @@ const List = ({ datas, addFilters }) => {
 
     const resizeWindow = () => {
         filterBoxHeight = (document.getElementById('filterBox')) ? document.getElementById('filterBox').clientHeight : 40;
-        if(listWrapper.current) listWrapper.current.style.cssText = `top:${filterBoxHeight}px`;
+        if(listWrapper.current) {
+            listWrapper.current.style.cssText = `top:${filterBoxHeight}px`;
+
+            if(window.matchMedia("(max-width:375px)").matches){
+                listWrapper.current.style.cssText = `top:${filterBoxHeight + 20}px`;
+            }
+        }
     }
 
     useEffect(() => {
@@ -25,9 +31,9 @@ const List = ({ datas, addFilters }) => {
         width:100%;
         padding:0 20px;
 
-        // @media all and (max-width:375px){
-        //     top:150px;
-        // }
+        @media all and (max-width:375px){
+            top:${props => props.top + 20}px;
+        }
     `;
 
     const ListContainer = styled.div`
